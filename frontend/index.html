@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FairUseBot</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main-layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span>🗂️ Threads</span>
+        <button id="new-thread-btn" title="Start new thread">＋</button>
+      </div>
+      <ul id="thread-list"></ul>
+
+      <div id="mode-selector">
+        <select id="user-mode">
+          <option value="student">🎓 Student</option>
+          <option value="influencer">📣 Influencer</option>
+          <option value="nonprofit">🏢 Nonprofit</option>
+          <option value="artist">🎨 Artist</option>
+          <option value="other">🌐 Other</option>
+        </select>
+      </div>
+    </aside>
+    
+    <div class="container">
+      <h1 class="title">💬 FairUseBot</h1>
+
+      <div id="prompt-shortcuts">
+        <p><strong>Try one of these:</strong></p>
+        <div class="shortcuts"></div>
+      </div>
+
+      <div id="chat-box"></div>
+      <p id="typing-indicator" style="display:none;">FairUseBot is typing...</p>
+
+      <form id="chat-form">
+        <div class="input-wrapper">
+          <textarea id="user-input" placeholder="Ask a question..."></textarea>
+          <button type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="thread-context-menu" class="context-menu">
+    <ul class="context-menu__items">
+      <li class="context-menu__item" id="rename-thread">
+        <i class="context-menu__icon">✏️</i> Rename Thread
+      </li>
+    </ul>
+  </div>
+<script src="/static/chat.js"></script>
+</body>
+</html>

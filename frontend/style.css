@@ -1,0 +1,557 @@
+.main-layout {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  width: 260px;
+  min-width: 180px;
+  background: #f3f3ff;
+  border-radius: 1.5rem 0 0 1.5rem;
+  box-shadow: 2px 0 16px rgba(128, 98, 255, 0.05);
+  padding: 1.5rem 1rem 1rem 1rem;
+  overflow-y: auto;
+}
+
+#thread-list {
+  flex: 1 1 auto;
+  margin-bottom: 1rem;
+}
+
+#mode-selector {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#user-mode {
+  width: 100%;
+  height: 3rem;          
+  font-size: 1.1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.75rem;
+  border: 1px solid #b86adf;
+  background: #f3f3ff;
+  font-weight: 500;
+  text-align: center;
+  min-width: 120px;
+  box-shadow: 0 1px 3px rgba(128,98,255,0.03);
+  transition: border 0.2s;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+
+#mode-selector label {
+  font-size: 1rem;
+  color: #4c3b85;
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+
+#user-mode:focus {
+  outline: none;
+  border-color: #8062ff;
+  background: #fff;
+}
+
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.thread-title-input {
+  font-family: inherit;
+  font-size: 1.5rem;
+  border: 1px solid #b86adf;
+  border-radius: 0.5rem;
+  padding: 2px 6px;
+}
+
+#new-thread-btn {
+  background: #b86adf;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#new-thread-btn:hover {
+  background: #8062ff;
+}
+
+#thread-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.thread-item {
+  position: relative;
+  padding-right: 2.5rem; 
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  cursor: pointer;
+  border: 1px solid #e5eaff;
+  font-size: 1rem;
+  transition: background 0.2s, border 0.2s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.thread-item.active, .thread-item:hover {
+  background: #e5eaff;
+  border-color: #b86adf;
+}
+
+.thread-delete {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  color: #ff6b6b;
+  background: none;
+  border: none;
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.thread-item:hover .thread-delete {
+  opacity: 1;
+}
+
+.thread-delete:hover {
+  background-color: rgba(255, 107, 107, 0.1);
+}
+
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #f8e9f0, #e5eaff);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+
+.container {
+  flex: 1;
+  background: white;
+  border-radius: 0 1.5rem 1.5rem 0;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  width: auto; 
+  max-width: none; 
+}
+
+#chat-box {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  padding: 1rem;
+  height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.message {
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 1rem;
+  max-width: 85%;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+}
+
+.message.user {
+  background: #f5f5f5;
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
+  border: 1px solid #ddd;
+}
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+#user-input {
+  width: 100%;
+  padding: 1.2rem 6rem 1.2rem 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 3.5rem;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+#user-input:focus {
+  border-color: #b86adf;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(184, 106, 223, 0.1);
+}
+
+.input-wrapper button[type="submit"] {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  height: 40px;
+  padding: 0 16px;
+  font-size: 0.9rem;
+  background: linear-gradient(to bottom right, #b86adf, #8062ff);
+  border-radius: 999px;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.input-wrapper button[type="submit"]:hover {
+  background: linear-gradient(to bottom right, #a46cdf, #6b54ff);
+}
+
+button[type="submit"] {
+  padding: 1rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(to bottom right, #b86adf, #8062ff);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.message.bot {
+  background: white;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+
+#chat-form {
+  display: flex;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#user-input {
+  flex: 1;
+  padding: 1.2rem 1.5rem;
+  border-radius: 1rem 0 0 1rem; 
+  border: 1px solid #ccc;
+  background: #fafafa;
+  font-size: 1rem;
+  line-height: 1.6;
+  outline: none;
+  min-height: 3.5rem;
+  resize: none;
+  border-right: none; 
+}
+#user-input:focus {
+  border-color: #b86adf;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(184, 106, 223, 0.1);
+}
+
+button[type="submit"] {
+  height: 50px;
+  width: 100px; 
+  border-radius: 999px; 
+  border: none;
+  background: linear-gradient(to bottom right, #b86adf, #8062ff);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+button:hover {
+  background: linear-gradient(to bottom right, #a46cdf, #6b54ff);
+}
+
+.message.bot a {
+  color: #4caf50;
+  text-decoration: underline;
+}
+
+.message.bot strong {
+  font-weight: bold;
+}
+
+.message.bot {
+  white-space: pre-wrap;
+}
+
+audio {
+  margin-top: 0.25rem;
+  width: 100%;
+  border-radius: 4px;
+}
+
+#prompt-shortcuts {
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.shortcuts button {
+  flex: 1 1 30%;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 999px;
+  background: #f3f3ff;
+  color: #4c3b85;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.shortcuts button:hover {
+  background: #e5e1fa;
+}  
+
+.title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #b86adf, #8062ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#user-input {
+  width: 100%;
+  min-height: 3.5rem;
+  max-height: 8rem;
+  padding: 1.2rem 1.5rem;
+  border-radius: 1rem;
+  resize: vertical;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  font-size: 1rem;
+  line-height: 1.5;
+  outline: none;
+}
+
+#user-input:focus {
+  border-color: #b86adf;
+}
+
+button[type="submit"] {
+  padding: 1rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(to bottom right, #b86adf, #8062ff);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+#user-mode {
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #b86adf;
+  background: #f3f3ff;
+  font-size: 0.5rem;      
+  font-weight: 300;
+  text-align: center;
+  min-width: 120px;
+  box-shadow: 0 1px 3px rgba(128,98,255,0.03);
+  transition: border 0.2s;
+  width: 100%;
+  height: 3rem;
+  box-sizing: border-box;
+  appearance: none;
+  font-size: 1.25rem;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+    height: auto;
+    max-height: 200px;
+  }
+  
+  .container {
+    border-radius: 0 0 1.5rem 1.5rem;
+  } 
+}
+
+.context-menu {
+  position: fixed;
+  z-index: 10000;
+  width: 180px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+  display: none;
+  overflow: hidden;
+}
+
+.context-menu--active {
+  display: block;
+}
+
+.context-menu__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.context-menu__item {
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.context-menu__item:hover {
+  background-color: #e5eaff;
+}
+
+.context-menu__icon {
+  margin-right: 8px;
+  font-style: normal;
+}
+
+.custom-dropup {
+  position: relative;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(128,98,255,0.04);
+  padding: 1.2rem 1rem;
+  margin-top: auto;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.dropup-label {
+  display: block;
+  font-size: 1rem;
+  color: #4c3b85;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.dropup-button {
+  width: 100%;
+  padding: 0.55rem 1.2rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid #b86adf;
+  background: #f3f3ff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border 0.2s, background 0.2s;
+}
+
+.dropup-button:hover {
+  border-color: #8062ff;
+}
+
+.dropup-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.3s;
+}
+.custom-dropup.open .dropup-arrow {
+  transform: rotate(180deg);
+}
+
+.dropup-content {
+  display: none;
+  position: absolute;
+  bottom: 100%; 
+  left: 0;
+  width: 100%;
+  margin-bottom: 8px;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
+  z-index: 10;
+  overflow: hidden;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.custom-dropup.open .dropup-content {
+  display: block;
+  animation: fadeIn 0.2s ease;
+}
+
+.dropup-option {
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropup-option:hover {
+  background: #e5eaff;
+}
+
+.dropup-option.selected {
+  background: #f3f3ff;
+  color: #8062ff;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
